@@ -1,0 +1,37 @@
+name: FishingFleet tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install SQLite3
+      run: sudo apt-get install -y libsqlite3-dev
+
+    - name: Install GoogleTest
+      run: sudo apt-get install -y libgtest-dev libgmock-dev
+
+    - name: Compile tests
+      run: |
+        g++ -std=c++17 \
+          -I./includes \
+          tests/tests.cpp \
+          src/auth.cpp \
+          src/database.cpp \
+          src/bonus.cpp \
+          src/statistics.cpp \
+          src/trip.cpp \
+          src/utils.cpp \
+          -lsqlite3 -lgtest -lgtest_main -lpthread \
+          -o fftest
+
+    - name: Run tests
+      run: ./fftest
