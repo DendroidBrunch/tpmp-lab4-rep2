@@ -22,9 +22,11 @@ private:
     bool authenticated;
     
     bool verifyPassword(const std::string& input, const std::string& hash);
-    std::string hashPassword(const std::string& password);
+   
     
 public:
+    std::string hashPassword(const std::string& password);
+
     Auth();
     
     bool login(const std::string& username, const std::string& password);
