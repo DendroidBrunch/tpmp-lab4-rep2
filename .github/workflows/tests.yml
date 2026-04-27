@@ -19,8 +19,8 @@ jobs:
     - name: Install GoogleTest
       run: sudo apt-get install -y libgtest-dev libgmock-dev
 
-    - name: Install coverage tools
-      run: sudo apt-get install -y lcov
+    - name: Install gcovr
+      run: sudo apt-get install -y gcovr
 
     - name: Compile tests
       run: |
@@ -41,15 +41,17 @@ jobs:
 
     - name: Generate coverage report
       run: |
-        lcov --capture --directory . --output-file coverage.info --no-external
-        lcov --remove coverage.info 'tests/*' --output-file coverage.info
-        lcov --list coverage.info
+        gcovr --root . \
+          --exclude 'tests/.*' \
+          --exclude '/usr/.*' \
+          --html --html-details -o coverage_report.html \
+          --print-summary
 
-    - name: Generate HTML report
-      run: genhtml coverage.info --output-directory coverage_report
+    - name: Display coverage summary
+      run: gcovr --root . --exclude 'tests/.*' --exclude '/usr/.*'
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
-        path: coverage_report/
+        path: coverage_report.html
