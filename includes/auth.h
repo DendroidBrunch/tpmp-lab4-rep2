@@ -20,12 +20,13 @@ class Auth {
 private:
     User current_user;
     bool authenticated;
-
+    
     bool verifyPassword(const std::string& input, const std::string& hash);
     std::string hashPassword(const std::string& password);
     
 public:
     Auth();
+    
     bool login(const std::string& username, const std::string& password);
     void logout();
     bool isAuthenticated() const { return authenticated; }

@@ -19,7 +19,8 @@ public:
     bool open();
     void close();
     bool execute(const std::string& sql);
-    bool executeScript(const std::string& scriptPath);  
+    bool executeScript(const std::string& scriptPath);
+    
     bool query(const std::string& sql, 
                int (*callback)(void*, int, char**, char**), 
                void* data);
