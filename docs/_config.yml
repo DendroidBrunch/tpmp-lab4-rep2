@@ -1,0 +1,8 @@
+title: "Лабораторная работа 4"
+description: "Жилко, Гринь"
+
+baseurl: "/tpmp-gr10a-lab4-super_oleg"
+url: "https://fpmi-tpmp2026.github.io"
+
+markdown: kramdown
+theme: jekyll-theme-primer
