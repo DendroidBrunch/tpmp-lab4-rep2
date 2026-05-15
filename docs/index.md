@@ -12,4 +12,4 @@
     - [Component diagram](./component-zhylko)
   - [Functional requirements](./Functional-requirements)
   - [Specification](./Specification)
-  - [Glossary](./glossary)
+  - [Glossary](./Glossary)
