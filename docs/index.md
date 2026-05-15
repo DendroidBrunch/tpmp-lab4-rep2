@@ -7,7 +7,7 @@
 ### Pages
 
   - [Home](Home)
-  - [Task 1 Grin](./Task1-d017.md)
+  - [Task 1 Grin](./Task1-d017.html)
     - [Use case diagram](./Use-case-diagram.md)
     - [Activity diagram](./Activity-diagram.md)
     - [Classes activity diagram](./Classes-activity-diagram.md)
